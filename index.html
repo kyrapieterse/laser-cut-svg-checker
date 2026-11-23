@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Find open contours, repeated cut segments and physical-size discrepancies in an SVG drawing.">
+  <title>Laser-cut SVG checker | Tint &amp; Screen</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <script defer src="model.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#controls">Skip to controls</a>
+  <header class="shell bar"><img src="tint-and-screen.svg" alt="Tint &amp; Screen" width="190" height="32"><a href="https://tintandscreen.co.za/architectural-screens/laser-cut-aluminium-screens/">Laser-cut screen guide</a></header>
+  <main>
+    <div class="intro"><div class="shell"><h1>Laser-cut SVG checker</h1><p>Find open contours, repeated cut segments and physical-size discrepancies in an SVG drawing.</p><a class="jump" href="#result">View result</a></div></div>
+    <noscript><p class="shell help">Enable JavaScript to use this offline tool.</p></noscript>
+    <div class="shell workspace">
+      <form id="controls" tabindex="-1" autocomplete="off" onsubmit="return false">
+        <h2>Drawing and expected size</h2><p class="help">Expected dimensions are optional. Enter them to compare the declared physical size with your brief.</p>
+        <div class="fields">
+          <label class="full">SVG drawing<input type="file" id="art" accept=".svg,image/svg+xml" ></label>
+          <label>Expected width (mm)<input id="ew" type="number" min="0.001" step="any"></label>
+          <label>Expected height (mm)<input id="eh" type="number" min="0.001" step="any"></label>
+        </div>
+        <div class="actions"><button type="button" id="sample" class="secondary">Load example drawing</button></div>
+        <p class="message" id="message" role="status"></p>
+      </form>
+      <section class="result" id="result" tabindex="-1" aria-labelledby="result-title">
+        <h2 id="result-title">Drawing report</h2>
+        <p class="lead" id="summary" aria-live="polite"></p><ul class="rows" id="details"></ul><div id="findings"></div><p class="note">Review flagged paths in your drawing software. Check material, tolerances and machine settings with the fabricator.</p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
